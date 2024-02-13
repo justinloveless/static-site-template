@@ -1,0 +1,10 @@
+<!-- page.component.html -->
+<div class="page-wrapper">
+    <div *ngIf="page" class="page-component">
+        <h1>{{ page.title }}</h1>
+        <ng-container *ngFor="let component of page?.components">
+            <app-layout *ngIf="component.type == ComponentType.layout" [properties]="component.properties"></app-layout>
+            <ng-container appDynamicComponent [appComponentType]="component.type" [appComponentProperties]="component.properties"></ng-container>
+        </ng-container>
+    </div>
+</div>

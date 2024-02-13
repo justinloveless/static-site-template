@@ -1,0 +1,28 @@
+.social-link-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.social-link {
+    font-size: 2rem;
+    padding-right: 1rem;
+}
+
+.social-link a {
+    color: var(--color-primary-700);
+}
+
+#instagram-link a {
+    color: var(--color-primary-700);
+}
+
+#tiktok-link a {
+    color: var(--color-primary-700);
+}
+
+#soundcloud-link a {
+    color: var(--color-primary-700);
+}

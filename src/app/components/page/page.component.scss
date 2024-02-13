@@ -1,0 +1,8 @@
+.page-wrapper {
+  display: grid;
+  grid-template-areas: '. main .';
+  grid-template-columns: auto minmax(auto, 800px) auto;
+}
+.page-component {
+  grid-area: main;
+}

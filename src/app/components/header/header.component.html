@@ -1,0 +1,8 @@
+<ng-container [ngSwitch]="properties?.hSize">
+    <h6 *ngSwitchCase="'h6'" [ngClass]="properties?.cssClass">{{ properties?.text }}</h6>
+    <h5 *ngSwitchCase="'h5'" [ngClass]="properties?.cssClass">{{ properties?.text }}</h5>
+    <h4 *ngSwitchCase="'h4'" [ngClass]="properties?.cssClass">{{ properties?.text }}</h4>
+    <h3 *ngSwitchCase="'h3'" [ngClass]="properties?.cssClass">{{ properties?.text }}</h3>
+    <h2 *ngSwitchCase="'h2'" [ngClass]="properties?.cssClass">{{ properties?.text }}</h2>
+    <h1 *ngSwitchDefault [ngClass]="properties?.cssClass">{{ properties?.text }}</h1>
+</ng-container>

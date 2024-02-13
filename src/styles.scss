@@ -1,0 +1,124 @@
+@use "sass:color";
+// fonts
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+// Define SCSS variables for each color
+$color-surface-500: #708e96;
+$color-primary-500: #b25cd2;
+$color-secondary-500: #8da7c6;
+$color-tertiary-500: #dcdcdc;
+$color-success-500: green;
+$color-warning-500: yellow;
+$color-error-500: red;
+$dark-text: #333;
+$light-text: #fff;
+$font-size-base: 16px;
+$rounded-base: 16px;
+$rounded-container: 8px;
+$border-size: 2px;
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol";
+$font-family-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol";
+
+:root {
+  /*Theme On-X Colors*/
+  --on-primary: #{$dark-text};
+  --on-secondary: #{$dark-text};
+  --on-tertiary: #{$dark-text};
+  --on-success: #{$light-text};
+  --on-warning: #{$dark-text};
+  --on-error: #{$dark-text};
+  --on-surface: #{$dark-text};
+  // common variables
+  --theme-font-family-base: #{$font-family-base};
+  --theme-font-family-heading: #{$font-family-heading};
+  --theme-font-color-base: #{$dark-text};
+  --theme-font-color-dark: #{$light-text};
+  --theme-font-size-base: #{$font-size-base};
+  --theme-rounded-base: #{$rounded-base};
+  --theme-rounded-container: #{$rounded-container};
+  --theme-border-base: #{$border-size};
+}
+
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: var(--color-surface-500);
+}
+
+// Convert hex to RGB
+@function hex-to-rgb($hex) {
+  @return color.red($hex), color.green($hex), color.blue($hex);
+}
+
+@function byte-to-hex($num) {
+  $chars: "0123456789ABCDEF";
+  @return str-slice(
+      $chars,
+      1 + floor(calc($num / 16)),
+      1 + floor(calc($num / 16))
+    ) + str-slice($chars, 1 + $num % 16, 1 + $num % 16);
+}
+
+// Convert RGB to Hex
+@function rgb-to-hex($r, $g, $b) {
+  $r: round($r);
+  $g: round($g);
+  $b: round($b);
+  @return "#" + byte-to-hex($r) + byte-to-hex($g) + byte-to-hex($b);
+}
+
+// Calculate shades
+@function calculate-shade($color, $factor) {
+  $r: nth(hex-to-rgb($color), 1) * $factor;
+  $g: nth(hex-to-rgb($color), 2) * $factor;
+  $b: nth(hex-to-rgb($color), 3) * $factor;
+
+  @return rgb-to-hex($r, $g, $b);
+}
+
+// Calculate tints
+@function calculate-tint($color, $factor) {
+  $r: nth(hex-to-rgb($color), 1) + (255 - nth(hex-to-rgb($color), 1)) * $factor;
+  $g: nth(hex-to-rgb($color), 2) + (255 - nth(hex-to-rgb($color), 2)) * $factor;
+  $b: nth(hex-to-rgb($color), 3) + (255 - nth(hex-to-rgb($color), 3)) * $factor;
+
+  @return rgb-to-hex($r, $g, $b);
+}
+
+// Function to generate color variables
+@mixin generate-colors($color, $color-name) {
+  --color-#{$color-name}-50: #{calculate-tint($color, 0.85)};
+  --color-#{$color-name}-100: #{calculate-tint($color, 0.8)};
+  --color-#{$color-name}-200: #{calculate-tint($color, 0.75)};
+  --color-#{$color-name}-300: #{calculate-tint($color, 0.6)};
+  --color-#{$color-name}-400: #{calculate-tint($color, 0.03)};
+  --color-#{$color-name}-500: #{$color};
+  --color-#{$color-name}-600: #{calculate-shade($color, 0.9)};
+  --color-#{$color-name}-700: #{calculate-shade($color, 0.75)};
+  --color-#{$color-name}-800: #{calculate-shade($color, 0.6)};
+  --color-#{$color-name}-900: #{calculate-shade($color, 0.5)};
+}
+
+:root {
+  /*Theme Primary Colors*/
+  @include generate-colors($color-primary-500, "primary");
+  /*Theme Secondary Colors*/
+  @include generate-colors($color-secondary-500, "secondary");
+  /*Theme Tertiary Colors*/
+  @include generate-colors($color-tertiary-500, "tertiary");
+  /*Theme Success Colors*/
+  @include generate-colors($color-success-500, "success");
+  /*Theme Warning Colors*/
+  @include generate-colors($color-warning-500, "warning");
+  /*Theme Error Colors*/
+  @include generate-colors($color-error-500, "error");
+  /*Theme Surface Colors*/
+  @include generate-colors($color-surface-500, "surface");
+}

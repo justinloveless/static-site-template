@@ -1,0 +1,16 @@
+<form class="contact-form" (submit)="submit($event)">
+    <div class="form-container">
+        <ng-container *ngFor="let field of properties?.fields">
+            <label class="form-label">{{field?.label}}</label>
+            <ng-container [ngSwitch]="field.type">
+                <input *ngSwitchCase="'text'" class="form-field" type="text" [name]="field.name" [placeholder]="field.placeholder">
+                <input *ngSwitchCase="'email'" class="form-field" type="email" [name]="field.name" [placeholder]="field.placeholder">
+                <textarea *ngSwitchCase="'textarea'" class="form-field-area" [name]="field.name" [placeholder]="field.placeholder"></textarea>
+            </ng-container>
+        </ng-container>
+        <div></div> <!-- spacer just to ensure the button is on the right-->
+        <div class="btn-container">
+            <input class="form-btn" type="submit" value="Send">
+        </div>
+    </div>
+</form>

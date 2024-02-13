@@ -1,0 +1,64 @@
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Align the button to the right */
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  /* Adjust the number of columns as needed */
+  gap: 10px;
+  /* Adjust the gap between rows and columns as needed */
+}
+
+.form-fields-list {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  height: 5rem;
+  width: 20rem;
+  background-color: var(--color-surface-200);
+  border: none;
+}
+
+.form-field {
+  display: flex;
+  align-items: center;
+  /* Align label and field vertically */
+  background-color: var(--color-surface-200);
+  height: 1rem;
+  border: none;
+}
+
+.form-label {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-btn {
+  margin-top: 10px;
+  background-color: var(--color-primary-500);
+  border-radius: var(--theme-rounded-base);
+  border-width: 0;
+  padding: 0.5rem;
+  width: 50%;
+  /* Add spacing between the fields and the button */
+  transition: background-color 0.3s ease;
+}
+
+.form-btn :hover {
+
+  background-color: var(--color-primary-900);
+}

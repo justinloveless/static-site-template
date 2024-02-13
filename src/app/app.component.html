@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="header">
+    <div id="header-content">
+      <div class="title">
+        <h1 id="title-text">Static Site Generator</h1>
+      </div>
+      <nav>
+        <div class="nav-link-container">
+            <a routerLink="/page/home">Dynamic Home</a>
+            <a routerLink="/page/contact">Dynamic Contact</a>
+        </div>
+      </nav>
+    </div>
+    <app-social-links style="grid-area: right"></app-social-links>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="footer">
+    <h2>footer</h2>
+  </div>
+</div>

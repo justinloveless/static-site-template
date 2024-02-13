@@ -1,0 +1,117 @@
+{
+    "pages": [
+        {
+            "pageId": "home",
+            "title": "Home Page",
+            "components": [
+                {
+                    "type": "layout",
+                    "properties": {
+                        "type": "column",
+                        "components": [
+                            {
+                                "type": "header",
+                                "properties": {
+                                    "text": "Welcome to Our Homepage",
+                                    "hSize": "h3",
+                                    "cssClass": "main-header"
+                                }
+                            },
+                            {
+                                "type": "image",
+                                "properties": {
+                                    "src": "sample.jpeg",
+                                    "alt": "Intro Image",
+                                    "size": {
+                                        "width": 200,
+                                        "height": 200
+                                    }
+                                }
+                            },
+                            {
+                                "type": "paragraph",
+                                "properties": {
+                                    "text": "Here is some introduction about our company.",
+                                    "cssClass": "intro-paragraph"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "pageId": "contact",
+            "components": [
+                {
+                    "type": "header",
+                    "properties": {
+                        "text": "Get in Touch with Us",
+                        "cssClass": "main-header"
+                    }
+                },
+                {
+                    "type": "image",
+                    "properties": {
+                        "src": "sample.jpeg",
+                        "alt": "Intro Image",
+                        "size": {
+                            "width": 200,
+                            "height": 200
+                        }
+                    }
+                },
+                {
+                    "type": "paragraph",
+                    "properties": {
+                        "text": "You can contact us via email, phone, or visiting our office.",
+                        "cssClass": "contact-info"
+                    }
+                },
+                {
+                    "type": "form",
+                    "properties": {
+                        "action": "email",
+                        "fields": [
+                            {
+                                "label": "Your Name",
+                                "type": "text",
+                                "name": "name",
+                                "placeholder": "Enter your name"
+                            },
+                            {
+                                "label": "Your Email",
+                                "type": "email",
+                                "name": "email",
+                                "placeholder": "Enter your email"
+                            },
+                            {
+                                "label": "Your Message",
+                                "type": "textarea",
+                                "name": "message",
+                                "placeholder": "Enter your message"
+                            }
+                        ],
+                        "submitButtonText": "Send Message"
+                    }
+                }
+            ]
+        }
+    ],
+    "theme": {
+        "colorPrimary": "#708e96",
+        "colorSecondary": null,
+        "colorTertiary": null,
+        "colorSurface": null,
+        "colorSuccess": null,
+        "colorWarning": null,
+        "colorError": null,
+        "colorTextDark": null,
+        "colorTextLight": null,
+        "fontSize": null,
+        "roundedBase": null,
+        "roundedContainer": null,
+        "borderSize": null,
+        "fontFamily": null
+    }
+}

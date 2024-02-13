@@ -1,0 +1,25 @@
+<ng-container [ngSwitch]="properties?.type">
+    <ng-container *ngSwitchCase="LayoutType.column">
+        <div class="layout-col">
+            <ng-container *ngFor="let component of properties?.components">
+                <app-layout *ngIf="component.type == ComponentType.layout" [properties]="component.properties"></app-layout>
+                <ng-container appDynamicComponent [appComponentType]="component.type" [appComponentProperties]="component.properties"></ng-container>
+            </ng-container>
+        </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="LayoutType.row">
+        <div class="layout-row">
+            <ng-container *ngFor="let component of properties?.components">
+                <app-layout *ngIf="component.type == ComponentType.layout" [properties]="component.properties"></app-layout>
+                <ng-container appDynamicComponent [appComponentType]="component.type" [appComponentProperties]="component.properties"></ng-container>
+            </ng-container>
+        </div>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+        <ng-container *ngFor="let component of properties?.components">
+            <app-layout *ngIf="component.type == ComponentType.layout" [properties]="component.properties"></app-layout>
+            <ng-container appDynamicComponent [appComponentType]="component.type" [appComponentProperties]="component.properties"></ng-container>
+        </ng-container>
+    </ng-container>
+    
+</ng-container>
