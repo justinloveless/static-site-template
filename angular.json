@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "static-site-gen": {
+    "static-site-template": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -70,10 +70,10 @@
           ],
           "configurations": {
             "production": {
-              "browserTarget": "static-site-gen:build:production"
+              "browserTarget": "static-site-template:build:production"
             },
             "development": {
-              "browserTarget": "static-site-gen:build:development"
+              "browserTarget": "static-site-template:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "static-site-gen:build"
+            "browserTarget": "static-site-template:build"
           }
         },
         "test": {
